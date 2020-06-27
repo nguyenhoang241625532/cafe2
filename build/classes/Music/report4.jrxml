@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report4" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="edfeaa57-4e45-46e1-97da-8df75ea38f21">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select extract(year from ngaytao) as nam, count(extract(year from ngaytao)) as TongHoaDon, sum(tongtien) from hoadon
+group by extract(year from ngaytao)]]>
+	</queryString>
+	<field name="NAM" class="java.math.BigDecimal"/>
+	<field name="TONGHOADON" class="java.math.BigDecimal"/>
+	<field name="SUM(TONGTIEN)" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="18" y="27" width="516" height="37" forecolor="#000099" backcolor="#F0F0F0" uuid="ae77d4af-e65c-4573-abba-214352da4751"/>
+				<textElement textAlignment="Center">
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[THỐNG KÊ DOANH THU  TRONG NĂM]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="78" y="2" width="100" height="20" backcolor="#F0F0F0" uuid="9e2b76e8-0e66-4e7c-b5d7-18ad097a6a4a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NĂM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="228" y="2" width="100" height="20" backcolor="#F0F0F0" uuid="669f4eab-7d5d-4736-9d63-224030fd19cd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TỔNG HÓA ĐƠN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="379" y="2" width="100" height="20" backcolor="#F0F0F0" uuid="cb581a4b-8484-4377-bba6-2f64a7c9025a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TỔNG TIỀN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="78" y="2" width="100" height="20" uuid="7f21e50e-a336-40ad-8ebc-89183c879550"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{NAM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="2" width="100" height="20" uuid="8e2d96ae-f073-4e3e-83b2-5fb4ac077a02"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TONGHOADON}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="2" width="100" height="20" uuid="b46523df-7b34-4701-bfda-08334f4e2e00"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{SUM(TONGTIEN)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

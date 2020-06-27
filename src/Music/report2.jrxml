@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7d4bd2fb-1e07-4eb0-a434-02f8926ef43c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from hoadon
+where mahd=(
+  select max(mahd)
+  from hoadon
+)]]>
+	</queryString>
+	<field name="MAHD" class="java.math.BigDecimal"/>
+	<field name="TENKM" class="java.lang.String"/>
+	<field name="NGAYTAO" class="java.sql.Timestamp"/>
+	<field name="TONGTIEN" class="java.math.BigDecimal"/>
+	<field name="PHAITRA" class="java.math.BigDecimal"/>
+	<field name="KHACHDUA" class="java.math.BigDecimal"/>
+	<field name="TRALAI" class="java.math.BigDecimal"/>
+	<variable name="TONGTIEN_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{TONGTIEN}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="72" y="4" width="386" height="47" backcolor="#CCCCCC" uuid="31955225-02d7-41dd-83c7-ec92241087b7"/>
+				<textElement textAlignment="Center">
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[HÓA ĐƠN ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="55" height="20" backcolor="#CCCCCC" uuid="10fb155a-de0d-40d6-b965-a15ddb1d50d6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[MAHD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="127" y="2" width="94" height="20" backcolor="#CCCCCC" uuid="a0b5454b-920d-49fa-84ce-35930d92072b"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[NGAYTAO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="221" y="2" width="99" height="20" backcolor="#CCCCCC" uuid="f7071437-4d62-4d8c-9000-8b20a976fb1e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TONGTIEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="320" y="2" width="86" height="20" backcolor="#CCCCCC" uuid="f5b2c5a5-0b14-44fe-b4c5-8abe236b1e39"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[PHAITRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="406" y="2" width="80" height="20" backcolor="#CCCCCC" uuid="8c0fe86c-7b2c-47b4-a400-a6cc14a99b3d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[KHACHDUA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="486" y="2" width="59" height="20" backcolor="#CCCCCC" uuid="a9b65253-988a-440f-9e2c-6bbec0755922"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TRALAI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="55" y="2" width="72" height="20" backcolor="#CCCCCC" uuid="0a0f730c-8da6-4151-ab65-d4f4988e0d09"/>
+				<text><![CDATA[TENKM]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="11" width="55" height="20" uuid="2053ebe3-99a3-4e80-8347-ece6a41633e3"/>
+				<textFieldExpression><![CDATA[$F{MAHD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="11" width="75" height="20" uuid="7c499c8e-7001-4c77-830d-9974c25978e8"/>
+				<textFieldExpression><![CDATA[$F{NGAYTAO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="11" width="68" height="20" uuid="17c58b87-24f4-4f94-8850-10bbbedba27e"/>
+				<textFieldExpression><![CDATA[$F{TONGTIEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="338" y="11" width="68" height="20" uuid="b59c40eb-5eb9-44b0-9bb8-59d0f1929fe5"/>
+				<textFieldExpression><![CDATA[$F{PHAITRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="11" width="66" height="20" uuid="a28732c5-1079-46d2-846a-a2e5e94d1704"/>
+				<textFieldExpression><![CDATA[$F{KHACHDUA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="504" y="11" width="51" height="20" uuid="0f96dc65-8782-4b93-9499-61abd9ef4e5e"/>
+				<textFieldExpression><![CDATA[$F{TRALAI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="11" width="70" height="20" uuid="f6512a58-1786-4070-be26-ec87d588ca70"/>
+				<textFieldExpression><![CDATA[$F{TENKM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="445" y="10" width="100" height="20" forecolor="#CC0000" backcolor="#F0F0F0" uuid="e21699de-14aa-4c31-baa9-008008bb2c8c"/>
+				<textFieldExpression><![CDATA[$V{TONGTIEN_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="371" y="10" width="62" height="20" forecolor="#CC0000" backcolor="#F0F0F0" uuid="2ebdfb96-6a29-473a-872b-ad7143fcef2b"/>
+				<text><![CDATA[Tổng  tiền  :]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
